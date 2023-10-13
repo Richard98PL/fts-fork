@@ -407,28 +407,28 @@ SharedExpStatus_t Party::getMemberSharedExperienceStatus(const Player* player) c
 		}
 	}
 
-	uint32_t minLevel = static_cast<uint32_t>(std::ceil((static_cast<float>(highestLevel) * 2) / 3));
-	if (player->getLevel() < minLevel) {
-		return SHAREDEXP_LEVELDIFFTOOLARGE;
-	}
+	// uint32_t minLevel = static_cast<uint32_t>(std::ceil((static_cast<float>(highestLevel) * 2) / 3));
+	// if (player->getLevel() < minLevel) {
+	// 	return SHAREDEXP_LEVELDIFFTOOLARGE;
+	// }
 
 	if (!Position::areInRange<EXPERIENCE_SHARE_RANGE, EXPERIENCE_SHARE_RANGE, EXPERIENCE_SHARE_FLOORS>(
 	        leader->getPosition(), player->getPosition())) {
 		return SHAREDEXP_TOOFARAWAY;
 	}
 
-	if (!player->hasFlag(PlayerFlag_NotGainInFight)) {
-		// check if the player has healed/attacked anything recently
-		auto it = ticksMap.find(player->getID());
-		if (it == ticksMap.end()) {
-			return SHAREDEXP_MEMBERINACTIVE;
-		}
+	// if (!player->hasFlag(PlayerFlag_NotGainInFight)) {
+	// 	// check if the player has healed/attacked anything recently
+	// 	auto it = ticksMap.find(player->getID());
+	// 	if (it == ticksMap.end()) {
+	// 		return SHAREDEXP_MEMBERINACTIVE;
+	// 	}
 
-		uint64_t timeDiff = OTSYS_TIME() - it->second;
-		if (timeDiff > static_cast<uint64_t>(g_config.getNumber(ConfigManager::PZ_LOCKED))) {
-			return SHAREDEXP_MEMBERINACTIVE;
-		}
-	}
+	// 	uint64_t timeDiff = OTSYS_TIME() - it->second;
+	// 	if (timeDiff > static_cast<uint64_t>(g_config.getNumber(ConfigManager::PZ_LOCKED))) {
+	// 		return SHAREDEXP_MEMBERINACTIVE;
+	// 	}
+	// }
 	return SHAREDEXP_OK;
 }
 
