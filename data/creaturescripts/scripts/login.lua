@@ -14,6 +14,9 @@ local function onMovementRemoveProtection(cid, oldPosition, time)
 end
 
 function onLogin(player)
+
+    player:constregen()
+	
 	local serverName = configManager.getString(configKeys.SERVER_NAME)
 	local loginStr = "Welcome to " .. serverName .. "!"
 	if player:getLastLoginSaved() <= 0 then

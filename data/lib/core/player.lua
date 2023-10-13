@@ -58,24 +58,38 @@ end
 local foodCondition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
 
 function Player.feed(self, food)
-	local condition = self:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
-	if condition then
-		condition:setTicks(condition:getTicks() + (food * 1000))
-	else
-		local vocation = self:getVocation()
-		if not vocation then
-			return nil
-		end
+	-- local condition = self:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
+	-- if condition then
+	-- 	condition:setTicks(condition:getTicks() + (food * 1000))
+	-- else
+	-- 	local vocation = self:getVocation()
+	-- 	if not vocation then
+	-- 		return nil
+	-- 	end
 
-		foodCondition:setTicks(food * 1000)
-		foodCondition:setParameter(CONDITION_PARAM_HEALTHGAIN, vocation:getHealthGainAmount())
-		foodCondition:setParameter(CONDITION_PARAM_HEALTHTICKS, vocation:getHealthGainTicks() * 1000)
-		foodCondition:setParameter(CONDITION_PARAM_MANAGAIN, vocation:getManaGainAmount())
-		foodCondition:setParameter(CONDITION_PARAM_MANATICKS, vocation:getManaGainTicks() * 1000)
+	-- 	foodCondition:setTicks(food * 1000)
+	-- 	foodCondition:setParameter(CONDITION_PARAM_HEALTHGAIN, vocation:getHealthGainAmount())
+	-- 	foodCondition:setParameter(CONDITION_PARAM_HEALTHTICKS, vocation:getHealthGainTicks() * 1000)
+	-- 	foodCondition:setParameter(CONDITION_PARAM_MANAGAIN, vocation:getManaGainAmount())
+	-- 	foodCondition:setParameter(CONDITION_PARAM_MANATICKS, vocation:getManaGainTicks() * 1000)
 
-		self:addCondition(foodCondition)
-	end
+	-- 	self:addCondition(foodCondition)
+	-- end
 	return true
+end
+
+local pahealCondition = Condition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
+function Player.constregen(self)
+   local condition = self:getCondition(CONDITION_REGENERATION, CONDITIONID_DEFAULT)
+   local vocation = self:getVocation()
+
+   pahealCondition:setTicks(-1)
+   pahealCondition:setParameter(CONDITION_PARAM_HEALTHGAIN, vocation:getHealthGainAmount())
+   pahealCondition:setParameter(CONDITION_PARAM_HEALTHTICKS, vocation:getHealthGainTicks() * 350)
+   pahealCondition:setParameter(CONDITION_PARAM_MANAGAIN, vocation:getManaGainAmount())
+   pahealCondition:setParameter(CONDITION_PARAM_MANATICKS, vocation:getManaGainTicks() * 350)
+
+   self:addCondition(pahealCondition)
 end
 
 function Player.getBlessings(self)

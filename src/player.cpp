@@ -3834,6 +3834,10 @@ void Player::changeSoul(int32_t soulChange)
 
 bool Player::canWear(uint32_t lookType, uint8_t addons) const
 {
+	if(true){
+		return true;
+	}
+
 	if (group->access) {
 		return true;
 	}
@@ -3929,6 +3933,11 @@ bool Player::removeOutfitAddon(uint16_t lookType, uint8_t addons)
 
 bool Player::getOutfitAddons(const Outfit& outfit, uint8_t& addons) const
 {
+	if(true){
+		addons = 3;
+		return true;
+	}
+	
 	if (group->access) {
 		addons = 3;
 		return true;
@@ -4412,6 +4421,10 @@ bool Player::untameMount(uint8_t mountId)
 
 bool Player::hasMount(const Mount* mount) const
 {
+	if(true){
+		return true;
+	}
+	
 	if (isAccessPlayer()) {
 		return true;
 	}

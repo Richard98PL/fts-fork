@@ -198,15 +198,16 @@ if not Modules then
 			cost = 0
 		end
 
-		if parameters.premium and not player:isPremium() then
-			npcHandler:say("I'm sorry, but you need a premium account in order to travel onboard our ships.", cid)
-		elseif parameters.level and player:getLevel() < parameters.level then
-			npcHandler:say("You must reach level " .. parameters.level .. " before I can let you go there.", cid)
-		elseif player:isPzLocked() then
-			npcHandler:say("First get rid of those blood stains! You are not going to ruin my vehicle!", cid)
-		elseif not player:removeTotalMoney(cost) then
-			npcHandler:say("You don't have enough money.", cid)
-		else
+		-- if parameters.premium and not player:isPremium() then
+		-- 	npcHandler:say("I'm sorry, but you need a premium account in order to travel onboard our ships.", cid)
+		-- elseif parameters.level and player:getLevel() < parameters.level then
+		-- 	npcHandler:say("You must reach level " .. parameters.level .. " before I can let you go there.", cid)
+		-- elseif player:isPzLocked() then
+		-- 	npcHandler:say("First get rid of those blood stains! You are not going to ruin my vehicle!", cid)
+		-- elseif not player:removeTotalMoney(cost) then
+		-- 	npcHandler:say("You don't have enough money.", cid)
+		-- else
+		if true then 
 			npcHandler:releaseFocus(cid)
 			npcHandler:say(parameters.text or "Set the sails!", cid)
 			player:getPosition():sendMagicEffect(CONST_ME_TELEPORT)
