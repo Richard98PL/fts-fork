@@ -74,14 +74,14 @@ maxMarketOffersAtATimePerPlayer = 100
 -- You can disable it to save some memory if you don't see any errors at startup.
 -- checkDuplicateStorageKeys checks the values stored in the variables for duplicates.
 allowChangeOutfit = true
-freePremium = false
+freePremium = true
 kickIdlePlayerAfterMinutes = 15
 maxMessageBuffer = 4
-emoteSpells = false
+emoteSpells = true
 classicEquipmentSlots = false
-classicAttackSpeed = false
-showScriptsLogInConsole = false
-showOnlineStatusInCharlist = false
+classicAttackSpeed = true
+showScriptsLogInConsole = true
+showOnlineStatusInCharlist = true
 yellMinimumLevel = 2
 yellAlwaysAllowPremium = false
 minimumLevelToSendPrivate = 1
@@ -121,20 +121,20 @@ serverSaveShutdown = true
 -- maxlevel is OPTIONAL, but is considered infinite by default
 -- to disable stages, create a stage with minlevel 1 and no maxlevel
 experienceStages = {
-	{ minlevel = 1, maxlevel = 8, multiplier = 7 },
-	{ minlevel = 9, maxlevel = 20, multiplier = 6 },
-	{ minlevel = 21, maxlevel = 50, multiplier = 5 },
-	{ minlevel = 51, maxlevel = 100, multiplier = 4 },
-	{ minlevel = 101, multiplier = 3 }
+	{ minlevel = 1, maxlevel = 8, multiplier = 25 },
+	{ minlevel = 9, maxlevel = 20, multiplier = 25 },
+	{ minlevel = 21, maxlevel = 50, multiplier = 25 },
+	{ minlevel = 51, maxlevel = 100, multiplier = 25 },
+	{ minlevel = 101, multiplier = 25 }
 }
 
 -- Rates
 -- NOTE: rateExp is not used if you have enabled stages above
-rateExp = 5
-rateSkill = 3
-rateLoot = 2
-rateMagic = 3
-rateSpawn = 1
+rateExp = 25
+rateSkill = 200
+rateLoot = 5
+rateMagic = 200
+rateSpawn = 4
 
 -- Breakable Mana Shield
 useBreakableManaShield = true
