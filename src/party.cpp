@@ -396,9 +396,9 @@ bool Party::canUseSharedExperience(const Player* player) const
 
 SharedExpStatus_t Party::getMemberSharedExperienceStatus(const Player* player) const
 {
-	if (memberList.empty()) {
-		return SHAREDEXP_EMPTYPARTY;
-	}
+	// if (memberList.empty()) {
+	// 	return SHAREDEXP_EMPTYPARTY;
+	// }
 
 	uint32_t highestLevel = leader->getLevel();
 	for (Player* member : memberList) {
@@ -407,10 +407,10 @@ SharedExpStatus_t Party::getMemberSharedExperienceStatus(const Player* player) c
 		}
 	}
 
-	// uint32_t minLevel = static_cast<uint32_t>(std::ceil((static_cast<float>(highestLevel) * 2) / 3));
-	// if (player->getLevel() < minLevel) {
-	// 	return SHAREDEXP_LEVELDIFFTOOLARGE;
-	// }
+	uint32_t minLevel = static_cast<uint32_t>(std::ceil((static_cast<float>(highestLevel) * 2) / 3));
+	if (player->getLevel() < minLevel) {
+		return SHAREDEXP_LEVELDIFFTOOLARGE;
+	}
 
 	if (!Position::areInRange<EXPERIENCE_SHARE_RANGE, EXPERIENCE_SHARE_RANGE, EXPERIENCE_SHARE_FLOORS>(
 	        leader->getPosition(), player->getPosition())) {
